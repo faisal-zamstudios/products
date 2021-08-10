@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.table tr td, .table tr th {
+  vertical-align: middle !important;
+  text-align: center !important;
+}
