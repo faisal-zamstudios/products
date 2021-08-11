@@ -1,16 +1,14 @@
 
 import { useSelector } from 'react-redux';
-import Show from './showProducts';
+import ShowAddCart from './showAddCart';
 
-function Products(props) {
-
-    const { myData } = props;
+function AddCart(props) {
 
     let products = useSelector((state) => state.products);
 
     return (
         <div className="row m-0">
-            <h1 className="w-100">Update / Delete Product</h1>
+            <h1 className="w-100">Buy Products</h1>
             <br /><br /><br />
             <table className="table">
                 <thead>
@@ -18,14 +16,15 @@ function Products(props) {
                         <th>ID</th>
                         <th>Name</th>
                         <th>Price</th>
+                        <th>Quantity</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                {   
+                {
                     products&&
                     products.map((product) => {
-                        return <Show pid={product.id} pname={product.name} pprice={product.price} myData={myData} />
+                        return <ShowAddCart pid={product.id} pname={product.name} pprice={product.price} />
                     })
                 }
                 </tbody>
@@ -34,4 +33,4 @@ function Products(props) {
     );
 }
 
-export default Products;
+export default AddCart;

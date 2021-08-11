@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addProduct, updateProduct } from '../redux/actions';
+import { addProduct, updateProduct } from '../redux/actions/rootAction';
 
 
 function Add(props) {

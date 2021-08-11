@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeProduct } from '../redux/actions';
+import { removeProduct } from '../redux/actions/rootAction';
 
 function Show(props) {
 

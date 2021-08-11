@@ -1,5 +1,5 @@
 
-import { PRODUCT_ADD, PRODUCT_UPDATE, PRODUCT_REMOVE } from './actionType';
+import { PRODUCT_ADD, PRODUCT_UPDATE, PRODUCT_REMOVE } from '../actions/actionType';
  
 let lastId = 0;
 
@@ -18,7 +18,6 @@ const reducer = (products = [], action) => {
             return products.filter(product => product.id !== action.id);
         case PRODUCT_UPDATE:
             const index = products.findIndex(product => product.id === action.payload.id);
-            products[index].id = action.payload.id;
             products[index].name = action.payload.name;
             products[index].price = action.payload.price;
             return products;

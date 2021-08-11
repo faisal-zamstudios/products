@@ -1,4 +1,3 @@
-
 import { PRODUCT_ADD, PRODUCT_REMOVE, PRODUCT_UPDATE } from './actionType';
 
 export const addProduct = (product) => {
