@@ -1,4 +1,4 @@
-import { CART_ADD, CART_REMOVE, CART_UPDATE, CART_BY_ID } from './actionType';
+import { CART_ADD, CART_REMOVE, CART_UPDATE } from './actionType';
 
 export const addCart = (cart) => {
     return {
@@ -18,12 +18,5 @@ export const updateCart = (cart) => {
     return {
         type: CART_UPDATE,
         payload: cart
-    }
-};
-
-export const getCartByID = (id) => {
-    return {
-        type: CART_BY_ID,
-        id
     }
 };

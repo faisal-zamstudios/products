@@ -1,5 +1,5 @@
 
-import { CART_ADD, CART_UPDATE, CART_REMOVE, CART_BY_ID } from '../actions/actionType';
+import { CART_ADD, CART_UPDATE, CART_REMOVE } from '../actions/actionType';
 
 const reducer = (carts = [], action) => {
     let index = -1;
@@ -7,15 +7,17 @@ const reducer = (carts = [], action) => {
         case CART_ADD:
             index = carts.findIndex(cart => cart.id === action.payload.id);
             if(index>=0) {
-                carts[index].quantity += action.payload.quantity;
-                return carts;
+                return carts.map(cart => {
+                    if(cart.id === action.payload.id) {
+                        cart.quantity += action.payload.quantity;
+                    }
+                    return cart;
+                });
             } else {
                 return [
                     ...carts,
                     {
                         id : action.payload.id,
-                        name: action.payload.name,
-                        price: action.payload.price,
                         quantity: action.payload.quantity
                     }
                 ];
@@ -26,9 +28,6 @@ const reducer = (carts = [], action) => {
             index = carts.findIndex(cart => cart.id === action.payload.id);
             carts[index].quantity = action.payload.quantity;
             return carts;
-        case CART_BY_ID:
-            index = carts.findIndex(cart => cart.id === action.id);
-            return carts[index];
         default:
             return carts;
     }

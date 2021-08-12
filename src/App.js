@@ -25,10 +25,10 @@ function App() {
       </div>
       <div className="row m-0">
         <div className="col-lg-6">
-          <AddCart product={product} setProduct={setProduct} />
+          <AddCart />
         </div>
         <div className="col-lg-6">
-          <CartProducts myData={myData} />
+          <CartProducts />
         </div>
       </div>
     </>

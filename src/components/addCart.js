@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux';
 import ShowAddCart from './showAddCart';
 
-function AddCart(props) {
+function AddCart() {
 
     let products = useSelector((state) => state.products);
 
