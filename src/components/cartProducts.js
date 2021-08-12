@@ -1,4 +1,4 @@
-import react,{useEffect,useState} from 'react';
+import {useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import ShowCartProducts from './showCartProducts';
 
@@ -6,11 +6,8 @@ function CartProducts() {
 
     let carts = useSelector((state) => state.carts);
     
-    console.log(carts[0].quantity)
    useEffect(() => {
-       
        return () => {
-           
        }
    }, [carts])
 
