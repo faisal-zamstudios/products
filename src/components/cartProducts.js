@@ -1,20 +1,13 @@
-import {useEffect} from 'react';
-import { useSelector } from 'react-redux';
+
 import ShowCartProducts from './showCartProducts';
 
-function CartProducts() {
-
-    let carts = useSelector((state) => state.carts);
+function CartProducts(props) {
+    let cartNum = 0;
     
-   useEffect(() => {
-       return () => {
-       }
-   }, [carts])
-
     return (
-        <div className="row m-0">
+        <>
             <h1 className="w-100">Cart Items</h1>
-            <br /><br /><br />
+            <br />
             <table className="table">
                 <thead>
                     <tr>
@@ -27,14 +20,14 @@ function CartProducts() {
                 </thead>
                 <tbody>
                 {
-                    carts?(<>{carts.map((cart) => {
-                        return <ShowCartProducts pid={cart.id} pquantity={cart.quantity} />
+                    props.carts?(<>{props.carts.map((cart) => {
+                        cartNum++;
+                        return <ShowCartProducts cartNum={cartNum} pid={cart.id} pquantity={cart.quantity} />
                     })}</>):null
-                    
                 }
                 </tbody>
             </table>
-        </div>
+        </>
     );
 }
 

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Add from './components/addProduct';
 import Products from './components/products';
 import AddCart from './components/addCart';
-import CartProducts from './components/cartProducts';
 
 function App() {
 
@@ -23,14 +22,7 @@ function App() {
           <Products myData={myData} />
         </div>
       </div>
-      <div className="row m-0">
-        <div className="col-lg-6">
-          <AddCart />
-        </div>
-        <div className="col-lg-6">
-          <CartProducts />
-        </div>
-      </div>
+      <AddCart />
     </>
   );
 }

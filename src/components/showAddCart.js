@@ -1,27 +1,25 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { addCart } from '../redux/actions/rootAction';
 
 function ShowAddCart(props) {
 
-    const { pid, pname, pprice } = props;
+    const { pid, prodNum, pname, pprice, updater, setUpdater } = props;
 
     const [pquantity, setPquantity] = useState(1);
 
     let dispatch = useDispatch();
 
-    useEffect(() => {
-    }, [pquantity]);
-
     const addToCartClick = () => {
         dispatch(addCart({id: pid, quantity: pquantity }));
         setPquantity(1);
+        setUpdater(!updater);
     }
 
     return (
         <tr>
-            <td>{pid}</td>
+            <td>{prodNum}</td>
             <td>{pname}</td>
             <td>{pprice}</td>
             <td>

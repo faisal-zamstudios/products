@@ -8,10 +8,12 @@ function Products(props) {
 
     let products = useSelector((state) => state.products);
 
+    let prodNum = 0;
+
     return (
-        <div className="row m-0">
+        <>
             <h1 className="w-100">Update / Delete Product</h1>
-            <br /><br /><br />
+            <br />
             <table className="table">
                 <thead>
                     <tr>
@@ -25,12 +27,13 @@ function Products(props) {
                 {   
                     products&&
                     products.map((product) => {
-                        return <Show pid={product.id} pname={product.name} pprice={product.price} myData={myData} />
+                        prodNum++;
+                        return <Show pid={product.id} prodNum={prodNum} pname={product.name} pprice={product.price} myData={myData} />
                     })
                 }
                 </tbody>
             </table>
-        </div>
+        </>
     );
 }
 

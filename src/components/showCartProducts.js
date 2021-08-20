@@ -1,6 +1,6 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { updateCart, removeCart } from '../redux/actions/rootAction';
 
 function ShowCartProducts(props) {
@@ -9,12 +9,16 @@ function ShowCartProducts(props) {
     let index = products.findIndex(product => product.id === props.pid);
 
     const [quantity, setQuantity] = useState(props.pquantity);
+    
+    useEffect(() => {
+        setQuantity(props.pquantity);
+    }, [props.pquantity]);
 
     let dispatch = useDispatch();
 
     return (
         <tr>
-            <td>{props.pid}</td>
+            <td>{props.cartNum}</td>
             <td>{products[index].name}</td>
             <td>{products[index].price}</td>
             <td>
